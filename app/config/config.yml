@@ -24,7 +24,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ 'FOSCommentBundle' ]
+    bundles:        [ 'FOSCommentBundle', 'FOSAppBundle' ]
     filters:
         cssrewrite: ~
 
@@ -55,8 +55,8 @@ fos_comment:
     db_driver: orm
     class:
         model:
-            comment: merk\CommentBundle\Entity\Comment
-            thread: merk\CommentBundle\Entity\Thread
+            comment: FOS\AppBundle\Entity\Comment
+            thread: FOS\AppBundle\Entity\Thread
 fos_rest:
     view:
         view_response_listener: force
@@ -64,7 +64,7 @@ fos_rest:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: merk\UserBundle\Entity\User
+    user_class: FOS\AppBundle\Entity\User
 
 sensio_framework_extra:
     view:

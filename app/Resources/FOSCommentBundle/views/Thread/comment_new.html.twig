@@ -1,0 +1,19 @@
+{% extends "FOSCommentBundle:Thread:comment_new_content.html.twig" %}
+
+{% block fos_comment_form_fields %}
+{% if app.user %}<div class="avatar"></div>{% endif %}
+{{ parent() }}
+{% endblock fos_comment_form_fields %}
+
+{% block fos_comment_form_title %}
+{{ parent() }}
+
+<h4>Posting as {{ app.user ? app.user.username : 'Anonymous' }}</h4>
+{% endblock fos_comment_form_title %}
+
+{% block fos_comment_form_submit %}
+    {% if parent is not null %}
+        <input type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" class="fos_comment_comment_reply_cancel btn btn-danger" />
+    {% endif %}
+    <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" class="btn btn-primary" />
+{% endblock %}

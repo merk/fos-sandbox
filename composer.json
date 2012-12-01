@@ -19,6 +19,8 @@
         "jms/security-extra-bundle": "*",
         "jms/di-extra-bundle": "*",
 
+        "knplabs/knp-paginator-bundle": "*",
+
         "sensio/distribution-bundle": "*",
         "sensio/framework-extra-bundle": "*",
 

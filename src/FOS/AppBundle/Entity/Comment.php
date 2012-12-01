@@ -1,12 +1,13 @@
 <?php
 
-namespace merk\CommentBundle\Entity;
+namespace FOS\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
  * @ORM\Entity
+
  */
 class Comment extends BaseComment
 {
@@ -20,7 +21,7 @@ class Comment extends BaseComment
     /**
      * Thread of this comment
      *
-     * @ORM\ManyToOne(targetEntity="MyProject\MyBundle\Entity\Thread")
+     * @ORM\ManyToOne(targetEntity="FOS\AppBundle\Entity\Thread")
      * @var Thread
      */
     protected $thread;

@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block head %}
+{% javascripts
+'@FOSCommentBundle/Resources/assets/js/comment.js'
+'@FOSCommentBundle/Resources/assets/js/jquery_transport.js'
+'@FOSCommentBundle/Resources/assets/js/initialise.js'
+output='js/comments.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            <h1>Example Blog Post</h1>
+
+            <p>
+                Sapiente narwhal cupidatat, single-origin coffee
+                mixtape retro sint nesciunt pariatur commodo officia.
+                Pinterest Austin keffiyeh messenger bag assumenda est
+            </p>
+
+            <blockquote>
+                <p>
+                    Helvetica. Irony elit et, beard carles locavore
+                    sapiente chambray duis wayfarers direct trade ut vero.
+                </p>
+                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+            </blockquote>
+
+            <p>
+                Pour-over typewriter twee cred, voluptate Austin
+                banksy stumptown delectus brooklyn. Fingerstache craft
+                beer nisi reprehenderit occaecat. Gluten-free fap lomo
+                organic. Iphone cred kale chips pariatur.
+            </p>
+
+            <hr />
+            <h2>Comments</h2>
+
+            {% include "FOSCommentBundle:Thread:inline.html.twig" with { id: '' | date('Ym') } %}
+        </div>
+
+        <div class="span4">
+            <h3>FOSCommentBundle Demonstration</h3>
+
+            <p>In this example, we add a threaded comment feature to a blog post.</p>
+
+            <h4>Including on a page</h4>
+            <p>To include a comment thread in any page, all you need to do is include the following twig snippet in your template:</p>
+
+            <pre>{% raw %}{% include "FOSCommentBundle:Thread:inline.html.twig" with { id: 'unqiue' } %}{% endraw %}</pre>
+        </div>
+    </div>
+</div>
+{% endblock body %}
