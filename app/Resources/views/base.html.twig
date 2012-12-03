@@ -34,6 +34,12 @@
             <a class="brand" href="../">FOS Sandbox</a>
             <div class="nav-collapse" id="main-menu">
                 <ul class="nav pull-right" id="main-menu-right">
+                    {% if is_granted('IS_AUTHENTICATION_REMEMBERED') %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Log out</a></li>
+                    {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                    {% endif %}
                     <li><a rel="tooltip" target="_blank" href="http://github.com/FriendsOfSymfony">Github <i class="icon-share-alt"></i></a></li>
                 </ul>
             </div>

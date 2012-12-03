@@ -6,6 +6,13 @@
 app:
     resource: "@FOSAppBundle/Resources/config/routing.yml"
 
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
 fos_comment_api:
     type: rest
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
