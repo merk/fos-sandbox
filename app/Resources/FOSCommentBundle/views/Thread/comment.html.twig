@@ -1,0 +1,40 @@
+{% extends "FOSCommentBundle:Thread:comment_content.html.twig" %}
+
+{% set fos_comment_edit_class = ' btn btn-warning' %}
+{% set fos_comment_undelete_class = ' btn btn-warning' %}
+{% set fos_comment_delete_class = ' btn btn-danger' %}
+{% set fos_comment_vote_up_class = ' btn' %}
+{% set fos_comment_vote_down_class = ' btn' %}
+{% set fos_comment_reply_submit_class = ' btn btn-primary' %}
+
+{% block fos_comment_comment %}
+<div id="fos_comment_{{ comment.id }}" class="{% if comment is fos_comment_in_state(constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) %}fos_comment_deleted {% endif %}fos_comment_comment_group fos_comment_comment_show" data-depth="{{ depth }}" {% if parentId is defined %}data-parent="{{ parentId }}"{% endif %}>
+    <div class="row-fluid">
+        <div class="span3">
+            <p>Posted by <strong>{% if comment is fos_comment_in_state(constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) -%}
+                {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
+            {% else %}
+                {{ comment.authorName }}
+            {%- endif %}</strong></p>
+
+            <p>{{ comment.createdAt|date }}</p>
+        </div>
+
+        <div class="span9">
+            <div class="fos_comment_comment_body">{{ block('fos_comment_comment_body') }}</div>
+
+            <div class="fos_comment_controls">
+                {{ block('fos_comment_comment_metas_edit') }}
+                {{ block('fos_comment_comment_metas_delete') }}
+                {{ block('fos_comment_comment_metas_voting') }}
+                {{ block('fos_comment_comment_reply') }}
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    {% include "FOSCommentBundle:Thread:comments.html.twig" with { "comments": children | default([]), "depth": depth + 1, "parentId": comment.id, "view": view } %}
+</div>
+
+{% endblock fos_comment_comment %}

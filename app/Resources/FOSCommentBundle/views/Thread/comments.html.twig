@@ -1,0 +1,8 @@
+{% extends "FOSCommentBundle:Thread:comments_content.html.twig" %}
+
+{% block fos_comment_count '' %}
+
+{% block fos_comment_root %}
+{{ parent() }}
+<hr />
+{% endblock fos_comment_root %}

@@ -1,19 +1,35 @@
 {% extends "FOSCommentBundle:Thread:comment_new_content.html.twig" %}
 
+{% set fos_comment_reply_cancel_class = ' btn btn-danger' %}
+{% set fos_comment_reply_submit_class = ' btn btn-primary' %}
+
+{% block fos_comment_form_title '' %}
+
+{% block fos_comment_comment_new_form %}
+<form class="fos_comment_comment_new_form" action="{{ url('fos_comment_post_thread_comments', url_parameters) }}" data-parent="{{ parent.id|default() }}" method="POST">
+    {{ block('fos_comment_form_fields') }}
+</form>
+{% endblock fos_comment_comment_new_form %}
+
 {% block fos_comment_form_fields %}
-{% if app.user %}<div class="avatar"></div>{% endif %}
-{{ parent() }}
-{% endblock fos_comment_form_fields %}
+<div class="row-fluid">
+    <div class="span3">
+        Posting as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong>{% if parent is not null %} in reply to {{ parent.authorName }}{% endif %}
+    </div>
 
-{% block fos_comment_form_title %}
-{{ parent() }}
+    <div class="span9">
+        <div class="fos_comment_form_errors">
+            {{ form_errors(form) }}
+            {{ form_errors(form.body) }}
+        </div>
 
-<h4>Posting as {{ app.user ? app.user.username : 'Anonymous' }}</h4>
-{% endblock fos_comment_form_title %}
+        {{ form_widget(form.body) }}
 
-{% block fos_comment_form_submit %}
-    {% if parent is not null %}
-        <input type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" class="fos_comment_comment_reply_cancel btn btn-danger" />
-    {% endif %}
-    <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}" class="btn btn-primary" />
+        <div class="fos_comment_controls">
+            {{ block('fos_comment_form_submit') }}
+        </div>
+    </div>
+</div>
+
+{{ form_rest(form) }}
 {% endblock %}

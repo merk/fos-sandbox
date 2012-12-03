@@ -5,6 +5,7 @@
 '@FOSCommentBundle/Resources/assets/js/comment.js'
 '@FOSCommentBundle/Resources/assets/js/jquery_transport.js'
 '@FOSCommentBundle/Resources/assets/js/initialise.js'
+'@FOSAppBundle/Resources/assets/js/blog.js'
 output='js/comments.js'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -47,12 +48,36 @@ output='js/comments.js'
         <div class="span4">
             <h3>FOSCommentBundle Demonstration</h3>
 
-            <p>In this example, we add a threaded comment feature to a blog post.</p>
+            <p>
+                In this example, we add a threaded comment feature to a
+                blog post.
+            </p>
 
             <h4>Including on a page</h4>
-            <p>To include a comment thread in any page, all you need to do is include the following twig snippet in your template:</p>
+            <p>
+                To include a comment thread in any page, all you need to
+                do is include the following twig snippet in your template:
+            </p>
 
-            <pre>{% raw %}{% include "FOSCommentBundle:Thread:inline.html.twig" with { id: 'unqiue' } %}{% endraw %}</pre>
+            <pre>{% raw -%}
+            {% include "FOSCommentBundle:Thread:inline.html.twig" with { id: 'unqiue' } %}
+            {%- endraw %}</pre>
+
+            <h4>Whats going on</h4>
+            <p>
+                FOSCommentBundle provides a RESTful interface for managing
+                comment threads which can be used by any frontend code you
+                may want to write.
+            </p>
+            <p>
+                The bundle comes with a javascript frontend that supports
+                multiple ways of loading comments.
+            </p>
+            <ul>
+                <li>Comments can be loaded by an ajax call (default once the page has loaded)</li>
+                <li>Comments can be loaded by an async ajax call while the page loads</li>
+                <li>Comments can be loaded from a cross domain script using EasyXDM</li>
+            </ul>
         </div>
     </div>
 </div>

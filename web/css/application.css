@@ -33,13 +33,15 @@ body {
     float: left;
 }
 .fos_comment_comment_new_form textarea {
-    margin-left: 60px;
-    width: 450px;
+    width: 96%;
     height: 80px;
 }
-.fos_comment_submit {
-    margin-left: 60px;
+.fos_comment_comment_body {
+    margin-bottom: 1.4em;
 }
-.fos_comment_comment_form_holder h4 {
-    margin-left: 60px;
+[data-depth].fos_comment_comment_group .fos_comment_comments {
+    margin-left: 2em;
+}
+.fos_comment_controls {
+    float: right;
 }
