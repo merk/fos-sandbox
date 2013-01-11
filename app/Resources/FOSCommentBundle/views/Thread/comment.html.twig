@@ -3,8 +3,6 @@
 {% set fos_comment_edit_class = ' btn btn-warning' %}
 {% set fos_comment_undelete_class = ' btn btn-warning' %}
 {% set fos_comment_delete_class = ' btn btn-danger' %}
-{% set fos_comment_vote_up_class = ' btn' %}
-{% set fos_comment_vote_down_class = ' btn' %}
 {% set fos_comment_reply_submit_class = ' btn btn-primary' %}
 
 {% block fos_comment_comment %}
@@ -26,7 +24,6 @@
             <div class="fos_comment_controls">
                 {{ block('fos_comment_comment_metas_edit') }}
                 {{ block('fos_comment_comment_metas_delete') }}
-                {{ block('fos_comment_comment_metas_voting') }}
                 {{ block('fos_comment_comment_reply') }}
             </div>
         </div>

@@ -1,5 +1,7 @@
 {% extends '::base.html.twig' %}
 
+{% set title = 'FOSCommentBundle example -' %}
+
 {% block head %}
 {% javascripts
 '@FOSCommentBundle/Resources/assets/js/comment.js'
@@ -74,6 +76,7 @@ output='js/comments.js'
                 multiple ways of loading comments.
             </p>
             <ul>
+                <li>Comments can be included in the page by using a subrequest</li>
                 <li>Comments can be loaded by an ajax call (default once the page has loaded)</li>
                 <li>Comments can be loaded by an async ajax call while the page loads</li>
                 <li>Comments can be loaded from a cross domain script using EasyXDM</li>
