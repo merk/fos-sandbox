@@ -21,6 +21,8 @@ body {
 .demo-button {
     width: 40px;
     float: left;
+    clear: left;
+    margin-top: 0.5em;
 }
 .demo-description {
     margin-left: 75px;

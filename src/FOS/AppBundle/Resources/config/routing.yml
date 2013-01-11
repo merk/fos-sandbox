@@ -7,3 +7,8 @@ blog_post:
     pattern: /blog_post
     defaults:
         _controller: FOSAppBundle:Comment:blog
+
+fos_user:
+    pattern: /fos_user
+    defaults:
+        _controller: FOSAppBundle:User:demo

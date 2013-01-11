@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+
+{% set title = 'FOSUserBundle Login Page -' %}
+
+{% block body %}
+<div class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            <h1>FOSUserBundle Registration</h1>
+
+            <p>
+                FOSUserBundle provides extensible registration that can be
+                optionally included in your project.
+            </p>
+
+            <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                {{ form_widget(form) }}
+
+                <button type="submit" class="btn btn-primary">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</button>
+            </form>
+        </div>
+
+        <div class="span4">
+            <h3>FOSUserBundle Registration Demonstration</h3>
+
+            <p>
+                The registration system can be enabled by including the appropriate
+                routes in your application.
+            </p>
+
+            <p>
+                TODO: more about this stuff.
+            </p>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}

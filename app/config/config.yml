@@ -57,6 +57,15 @@ fos_comment:
         model:
             comment: FOS\AppBundle\Entity\Comment
             thread: FOS\AppBundle\Entity\Thread
+    acl: true
+    service:
+        acl:
+            thread:  fos_comment.acl.thread.roles
+            comment: fos_comment.acl.comment.roles
+        manager:
+            thread:  fos_comment.manager.thread.acl
+            comment: fos_comment.manager.comment.acl
+
 fos_rest:
     view:
         view_response_listener: force
